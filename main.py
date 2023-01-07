@@ -49,19 +49,19 @@ if __name__ == "__main__":
         tires = [tire for tire in reader]
 
     weights = {
-        "WG": 1,
-        "AC": 80,
-        "ON": 30,
-        "OF": 10,
-        "MT": 80,
-        "SL": 100,
-        "SW": 5,
-        "SA": 5,
-        "SG": 5,
-        "TL": 50,
-        "TW": 5,
-        "TA": 5,
-        "TG": 5,
+        "WG": 20,  # Weight
+        "AC": 100,  # Acceleration
+        "ON": 80,  # On-Road traction
+        "OF": 0,  # (Off-Road) Traction
+        "MT": 70,  # Mini-Turbo
+        "SL": 100,  # Ground Speed
+        "SW": 30,  # Water Speed
+        "SA": 30,  # Anti-Gravity Speed
+        "SG": 30,  # Air Speed
+        "TL": 50,  # Ground Handling
+        "TW": 50,  # Water Handling
+        "TA": 50,  # Anti-Gravity Handling
+        "TG": 50,  # Air Handling
     }
 
     scores = {}
