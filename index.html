@@ -5,13 +5,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="main.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Mario Kart Calculator</title>
 </head>
  
 <body>
     <script src="main.js"></script>
- <h1>Hi</h1>
- <button onClick="testFunc()">Click this shit</button>
+ <h1>Mario Kart Calculator</h1>
+ <p>Use this calculator to find your optimal Mario Kart 8 Deluxe build based on your priorities.</p>
+ <br>
+
+ <div class="weights">
+ <label>
+    Weight:
+    <input type="range" class="weight-slider" min="0" max="100" value="50" class="slider" id="weight" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Acceleration:
+    <input type="range" class="weight-slider" min="0" max="100" value="50" class="slider" id="acceleration" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    On-Road traction:
+    <input type="range" min="0" max="100" value="50" class="slider" id="onRoadTraction" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Off-Road traction:
+    <input type="range" min="0" max="100" value="50" class="slider" id="offRoadTraction" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Mini-Turbo:
+    <input type="range" min="0" max="100" value="50" class="slider" id="miniTurbo" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Ground Speed:
+    <input type="range" min="0" max="100" value="50" class="slider" id="groundSpeed" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Water Speed:
+    <input type="range" min="0" max="100" value="50" class="slider" id="waterSpeed" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Anti-Gravity Speed:
+    <input type="range" min="0" max="100" value="50" class="slider" id="antiGravitySpeed" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Air Speed:
+    <input type="range" min="0" max="100" value="50" class="slider" id="airSpeed" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Ground Handling:
+    <input type="range" min="0" max="100" value="50" class="slider" id="groundHandling" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Water Handling:
+    <input type="range" min="0" max="100" value="50" class="slider" id="waterHandling" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Anti-Gravity Handling:
+    <input type="range" min="0" max="100" value="50" class="slider" id="antiGravityHandling" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+
+ <label>
+    Air Handling:
+    <input type="range" min="0" max="100" value="50" class="slider" id="airHandling" onInput="this.nextElementSibling.value = this.value" >
+    <input type="text" id="textInput" value="50" readonly="readonly" style="border:0">
+ </label>
+</div>
+
+<br>
+
+<button onClick="calculateBuild()">Calculate</button>
+
+<br>
+<br>
+
+<div class="results">
+    <div class="results-section">
+        Character:
+        <br>
+        <textarea id="characters" value="" readonly="readonly" style="resize: none"></textarea>
+    </div>
+    <div class="results-section">
+        Kart:
+        <br>
+        <textarea id="karts" value="" readonly="readonly" style="resize: none"></textarea>
+    </div>
+    <div class="results-section">
+        Tires:
+        <br>
+        <textarea id="tires" value="" readonly="readonly" style="resize: none"></textarea>
+    </div>
+    <div class="results-section">
+        Glider:
+        <br>
+        <textarea id="gliders" value="" readonly="readonly" style="resize: none"></textarea>
+    </div>
+</div>
+
+<h2>Stats</h2>
+<div class="weights">
+    <label>
+        Weight: <input type="text" id="wStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Acceleration: <input type="text" id="accStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        On-Road traction: <input type="text" id="ontStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Off-Road traction: <input type="text" id="offtStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Mini-Turbo: <input type="text" id="mtStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Ground Speed: <input type="text" id="gsStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Water Speed: <input type="text" id="wsStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Anti-Gravity Speed: <input type="text" id="agsStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Air Speed: <input type="text" id="asStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Ground Handling: <input type="text" id="ghStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Water Handling: <input type="text" id="whStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Anti-Gravity Handling: <input type="text" id="aghStat" value="" readonly="readonly" style="border:0">
+     </label>
+    
+     <label>
+        Air Handling: <input type="text" id="ahStat" value="" readonly="readonly" style="border:0">
+     </label>
+</div>
+
 </body>
  
 </html>

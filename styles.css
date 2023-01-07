@@ -1,0 +1,16 @@
+.weights {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: flex-end
+}
+
+.results {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+}
+
+textarea {
+    resize: none;
+  }
