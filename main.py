@@ -12,6 +12,7 @@ TL: Ground Handling
 TW: Water Handling
 TA: Anti-Gravity Handling
 TG: Air Handling
+IV: Invinsibility
 """
 import csv
 from pprint import pprint
@@ -62,6 +63,7 @@ if __name__ == "__main__":
         "TW": 50,  # Water Handling
         "TA": 50,  # Anti-Gravity Handling
         "TG": 50,  # Air Handling
+        "IV": 0, #Invinsibility
     }
 
     scores = {}

@@ -1,57 +1,76 @@
 function calculateBuild() {
     let characters = [
-        [1,5,2,4,4,1,1,1,1,8,8,8,8],
-        [6,2,5,1,2,6,6,6,6,5,5,5,5],
-        [2,4,1,5,4,2,2,2,2,8,8,8,8],
-        [10,1,8,1,1,8,8,8,8,3,3,3,3],
-        [6,2,4,2,2,6,6,6,6,4,4,4,4],
-        [4,3,3,3,3,5,5,5,5,5,5,5,5],
-        [0,4,3,5,5,0,0,0,0,10,10,10,10],
-        [10,0,6,0,0,10,10,10,10,0,0,0,0],
-        [2,5,4,2,4,2,2,2,2,7,7,7,7],
-        [8,1,10,0,1,9,9,9,9,2,2,2,2],
-        [5,3,7,1,3,5,5,5,5,5,5,5,5],
-        [0,5,4,3,5,0,0,0,0,9,9,9,9],
-        [3,4,2,3,3,4,4,4,4,6,6,6,6],
-        [7,1,9,3,2,7,7,7,7,3,3,3,3],
-        [9,0,5,1,0,10,10,10,10,1,1,1,1],
-        [3,4,3,4,3,3,3,3,3,7,7,7,7]
+        [0,4,3,5,5,1,1,1,1,10,10,10,10,6],
+        [7,1,9,3,2,8,8,8,8,3,3,3,3,4],
+        [6,2,5,1,3,7,7,7,7,5,5,5,5,3],
+        [9,0,5,1,0,10,10,10,10,1,1,1,1,5],
+        [6,2,4,2,3,7,7,7,7,4,4,4,4,3],
+        [2,4,1,5,4,3,3,3,3,8,8,8,8,4],
+        [8,1,10,0,1,9,9,9,9,2,2,2,2,4],
+        [5,3,7,1,4,6,6,6,6,5,5,5,5,1],
+        [0,5,4,3,5,1,1,1,1,9,9,9,9,6],
+        [10,1,8,1,1,8,8,8,8,3,3,3,3,6],
+        [3,4,2,3,4,5,5,5,5,6,6,6,6,3],
+        [4,3,3,3,4,6,6,6,6,5,5,5,5,1],
+        [2,5,4,2,4,3,3,3,3,7,7,7,7,3],
+        [10,0,6,0,0,10,10,10,10,0,0,0,0,6],
+        [10,1,8,1,1,8,8,8,8,3,3,3,3,3],
+        [3,4,3,4,4,4,4,4,4,7,7,7,7,3],
+        [1,5,2,4,5,2,2,2,2,8,8,8,8,5],        
     ];
 
     let bodies = [
-        [0,6,0,6,6,1,5,0,2,4,5,2,3],
-        [3,1,3,1,1,5,1,4,2,1,1,2,0],
-        [4,1,1,3,2,4,5,2,0,1,5,1,1],
-        [4,0,2,5,0,5,2,3,1,0,1,1,0],
-        [2,4,3,3,4,3,3,3,3,3,2,3,3],
-        [1,2,1,2,3,4,3,3,3,3,3,2,3],
-        [3,3,2,4,4,3,3,5,4,2,2,4,2],
-        [1,5,3,5,5,2,2,4,3,4,3,4,3],
-        [3,2,4,7,3,2,4,3,3,4,4,3,3],
-        [2,5,4,3,5,2,2,3,4,4,2,3,4],
-        [1,6,3,4,6,1,3,1,1,5,4,4,2],
-        [0,7,1,4,7,0,1,2,1,5,4,5,4],
-        [2,2,1,0,3,4,2,3,3,3,2,3,2],
-        [0,3,1,3,3,4,2,4,3,2,3,5,1]
+        [1,6,3,4,6,2,3,1,1,5,4,4,2,2],
+        [4,0,2,5,3,5,2,3,1,0,1,1,0,6],
+        [1,2,1,2,4,4,3,3,3,3,3,2,3,5],
+        [3,1,3,1,3,5,1,4,2,1,1,2,0,6],
+        [0,7,1,4,7,0,1,2,1,5,4,5,4,0],
+        [3,2,4,7,5,3,4,3,3,4,4,3,3,4],
+        [2,4,3,3,5,3,3,3,3,3,2,3,3,3],
+        [2,2,1,0,4,4,2,3,3,3,2,3,2,4],
+        [0,6,0,6,6,2,5,0,2,4,5,2,3,2],
+        [0,3,1,3,4,4,2,4,3,2,3,5,1,4],
+        [2,5,4,3,6,2,2,3,4,4,2,3,4,2],
+        [4,1,1,3,3,4,5,2,0,1,5,1,1,6],
+        [1,6,3,4,6,2,3,1,1,5,4,4,2,3],
+        [1,5,3,5,5,2,2,4,3,4,3,4,3,4],
+        [3,2,4,7,5,3,4,3,3,4,4,3,3,3],
+        [2,2,1,0,4,4,2,3,3,3,2,3,2,3],
+        [4,0,2,5,3,5,2,3,1,0,1,1,0,7],
+        [0,3,1,3,4,4,2,4,3,2,3,5,1,3],
+        [1,2,1,2,4,4,3,3,3,3,3,2,3,3],
+        [3,3,2,4,5,3,3,5,4,2,2,4,2,1],
+        [3,3,2,4,5,3,3,5,4,2,2,4,2,3],
+        [2,2,1,0,4,4,2,3,3,3,2,3,2,5],
+        [0,6,0,6,6,2,5,0,2,4,5,2,3,3],
+        [2,5,4,3,6,2,2,3,4,4,2,3,4,1],
+        [2,5,4,3,6,2,2,3,4,4,2,3,4,3],
+        [4,1,1,3,3,4,5,2,0,1,5,1,1,5],
+        [2,4,3,3,5,3,3,3,3,3,2,3,3,4],
     ];
 
     let tires = [
-        [0,5,1,3,5,1,2,2,2,3,3,4,2],
-        [4,2,3,7,2,2,2,2,1,0,1,0,1],
-        [2,2,4,1,2,3,2,4,2,4,4,3,4],
-        [2,4,2,5,3,2,3,2,3,3,3,3,3],
-        [1,4,2,6,4,1,1,1,4,2,1,2,3],
-        [3,3,3,6,1,3,4,2,1,1,1,2,2],
-        [0,6,0,4,6,0,3,0,3,4,4,4,4],
-        [4,0,1,2,0,4,3,1,2,2,2,1,0],
-        [3,1,4,0,0,4,0,4,0,2,0,2,1]
+        [2,2,4,1,3,3,2,4,2,4,4,3,4,5],
+        [3,1,4,0,2,4,0,4,0,2,0,2,1,5],
+        [0,5,1,3,5,1,2,2,2,3,3,4,2,3],
+        [4,0,1,2,2,4,3,1,2,2,2,1,0,5],
+        [3,3,3,6,3,3,4,2,1,1,1,2,2,5],
+        [1,4,2,6,5,1,1,1,4,2,1,2,3,6],
+        [2,4,2,5,4,2,3,2,3,3,3,3,3,4],
+        [4,0,1,2,2,4,3,1,2,2,2,1,0,6],
+        [2,4,2,5,4,2,3,2,3,3,3,3,3,5],
+        [4,2,3,7,3,3,2,2,1,0,1,0,1,5],
+        [0,6,0,4,6,0,3,0,3,4,4,4,4,0],
+        [3,3,3,6,3,3,4,2,1,1,1,2,2,6],
+        [1,4,2,6,5,1,1,1,4,2,1,2,3,4],
+        [4,2,3,7,3,3,2,2,1,0,1,0,1,6],        
     ];
 
     let gliders = [
-        [2,1,2,0,1,1,0,1,2,1,1,0,1],
-        [1,1,1,1,1,1,1,0,2,1,0,1,1],
-        [0,2,1,1,2,0,1,1,1,1,0,1,2],
-        [1,2,2,0,2,0,0,1,1,1,1,0,2]
+        [0,2,1,1,2,0,1,1,1,1,0,1,2,0],
+        [2,1,2,0,1,1,0,1,2,1,1,0,1,1],
+        [1,2,2,0,2,0,0,1,1,1,1,0,2,0],
+        [1,1,1,1,1,1,1,0,2,1,0,1,1,1],
     ];
 
     let weights = [
@@ -68,61 +87,81 @@ function calculateBuild() {
         document.getElementById("waterHandling").value,
         document.getElementById("antiGravityHandling").value,
         document.getElementById("airHandling").value,
+        document.getElementById("invinsibility").value
     ];
 
     let character_map = [
-        ["Baby Mario", "Baby Luigi", "Dry Bones"],
-        ["Luigi", "Iggy"],
-        ["Koopa Troopa", "Lakitu"],
-        ["Metal Mario", "Pink Gold Peach", "Gold Mario"],
-        ["Mario", "Ludwig", "Mii (medium)"],
-        ["Peach", "Daisy", "Yoshi"],
         ["Baby Peach", "Baby Daisy"],
-        ["Bowser", "Morton"],
-        ["Toadette", "Wendy", "Isabelle"],
-        ["Donkey Kong", "Waluigi", "Roy"],
+        ["Rosalina", "Link", "King Boo", "Link (BotW)", "Pauline"],
+        ["Luigi", "Iggy", "Kamek"],
+        ["Wario", "Dry Bowser", "Kunky Kong"],
+        ["Mario", "Ludwig", "Mii (medium)"],
+        ["Koopa Troopa", "Lakitu", "Bowser Jr."],
+        ["Donkey Kong", "Waluigi", "Roy", "Wiggler"],
         ["Tanooki Mario", "Villager (male)", "Inking Boy"],
         ["Baby Rosalina", "Lemmy"],
-        ["Cat Peach", "Villager (female)", "Inking Girl"],
-        ["Rosalina", "Link", "King Boo", "Link (BotW)"],
-        ["Wario", "Dry Bowser"],
+        ["Petey Piranha"],
+        ["Cat Peach", "Villager (female)", "Inking Girl", "Diddy Kong"],
+        ["Peach", "Daisy", "Yoshi", "Birdo", "Peachette"],
+        ["Toadette", "Wendy", "Isabelle"],
+        ["Bowser", "Morton"],
+        ["Metal Mario", "Pink Gold Peach", "Gold Mario", "Petey Piranha"],
         ["Toad", "Shy Guy", "Larry"]
+        ["Baby Mario", "Baby Luigi", "Dry Bones"],
     ];
 
     let body_map = [
-        ["Landship", "Streetle"],
+        ["Varmint", "City Tripper"],
+        ["Standard ATV"],
+        ["Prancer"],
         ["Circuit Special", "B Dasher", "P-Wing"],
-        ["Steel Driver", "Tri-Speeder", "Bone Rattler"],
-        ["Badwagon", "Standard ATV", "GLA"],
-        ["Standard Kart", "The Duke", "300 SL Roadster"],
-        ["Prancer", "Sport Bike", "Jet Bike"],
-        ["Mach 8", "Sports Coupe", "Inkstriker"],
-        ["Standard Bike", "Flame Rider", "Wild Wiggler", "W-25 Silver Arrow"],
-        ["Tanooki Kart", "Koopa Clown", "Master Cycle Zero"],
-        ["Cat Cruiser", "Comet", "Yoshi Bike", "Teddy Buggy"],
-        ["Pipe Frame", "Varmint", "City Tripper"],
         ["BiddyBuggy", "Mr. Scooty"],
-        ["Sneeker", "Gold Standard", "Master Cycle"],
-        ["Blue Falcon", "Splat Buggy"]
+        ["Tanooki Kart"],
+        ["Standard Kart", "The Duke"],
+        ["Gold Standard"],
+        ["Landship"],
+        ["Blue Falcon"],
+        ["Comet", "Yoshi Bike"],
+        ["Steel Driver", "Tri-Speeder"],
+        ["Pipe Frame"],
+        ["Standard Bike", "Flame Rider", "Wild Wiggler", "W-25 Silver Arrow"],
+        ["Koopa Clown", "Master Cycle Zero"],
+        ["Master Cycle"],
+        ["Badwagon", "GLA"],
+        ["Splat Buggy"]
+        ["Sport Bike", "Jet Bike"],
+        ["Inkstriker"],
+        ["Mach 8", "Sports Coupe"],
+        ["Sneeker"],
+        ["Streetle"],
+        ["Teddy Buggy"],
+        ["Cat Cruiser"],
+        ["Bone Rattler"],
+        ["300 SL Roadster"]        
     ];
 
     let tire_map = [
-        ["Button", "Leaf Tires"],
-        ["Monster", "Hot Monster", "Ancient Tires"],
         ["Slim", "Wood", "Crimson Slim"],
-        ["Standard", "Blue Standard", "GLA Tires"],
-        ["Sponge", "Cusion"],
-        ["Off-Road", "Retro Off-Road", "Triforce Tires"],
-        ["Roller", "Azure Roller"],
-        ["Metal", "Gold Tires"],
         ["Slick", "Cyber Slicker"]
+        ["Button", "Leaf Tires"],
+        ["Gold Tires"],
+        ["Triforce Tires"],
+        ["Cushion"],
+        ["Standard", "Blue Standard"],
+        ["Metal"],
+        ["GLA Tires"],
+        ["Ancient Tires"],
+        ["Roller", "Azure Roller"],
+        ["Off-Road", "Retro Off-Road"],
+        ["Sponge"],
+        ["Monster", "Hot Monster"], 
     ]
 
     let glider_map = [
-        ["Wario Wing", "Plane Glider", "Gold Glider", "Paraglider"],
-        ["Super Glider", "Waddle Wing", "Hylian Kite"],
         ["Cloud Glider", "Parachute", "Flower Glider", "Paper Glider"],
-        ["Peach Parasol", "Parafoil", "Bowser Kite", "MKTV Parafoil"]
+        ["Wario Wing", "Plane Glider", "Gold Glider", "Paraglider"],
+        ["Peach Parasol", "Parafoil", "Bowser Kite", "MKTV Parafoil"],
+        ["Super Glider", "Waddle Wing", "Hylian Kite"],
     ]
 
     let best_score = 0;
@@ -166,5 +205,6 @@ function calculateBuild() {
     document.getElementById("whStat").value = "#".repeat(characters[best_build[0]][10] + bodies[best_build[1]][10] + tires[best_build[2]][10] + gliders[best_build[3]][10]);
     document.getElementById("aghStat").value = "#".repeat(characters[best_build[0]][11] + bodies[best_build[1]][11] + tires[best_build[2]][11] + gliders[best_build[3]][11]);
     document.getElementById("ahStat").value = "#".repeat(characters[best_build[0]][12] + bodies[best_build[1]][12] + tires[best_build[2]][12] + gliders[best_build[3]][12]);
+    document.getElementById("inStat").value = "#".repeat(characters[best_build[0]][13] + bodies[best_build[1]][13] + tires[best_build[2]][13] + gliders[best_build[3]][13]);
 
 }
